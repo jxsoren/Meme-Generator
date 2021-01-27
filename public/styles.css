@@ -1,0 +1,44 @@
+html, body {
+    background-color: #3D5A80;
+    color: white;
+    text-align: center;
+}
+
+h1{
+    font-family: 'Brush Script MT', cursive;
+    font-size: 3.5em;
+    margin-top: 15px;
+}
+
+
+.imageBox{
+    border: 1px solid white;
+    box-sizing: border-box;
+    width: 400px;
+    height: 400px;
+
+    display: flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+#genParent{
+    display: flex;
+    flex-direction: column;
+    align-items:center
+}
+
+.memeFormat {
+    margin-top: 5px;
+}
+
+button{
+    cursor: pointer;
+}
+
+img{
+    height: 400px;
+    width: 400px;
+}
