@@ -10,16 +10,16 @@ body{
     background-position: center;    
     background-color: #fccf3e;
 
-
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 h1 {
-    font-family: 'Brush Script MT';
-    font-size: 3.5em;
+    font-family: 'Brush Script MT', cursive;    
+    font-size: 5.4em;
     margin-top: 15px;
     margin-bottom: 15px;
+    text-shadow: 3px 3px white, 5px 5px red;
 }
 
 
@@ -45,7 +45,7 @@ h1 {
 hr {
     margin-top: 20px;
     width: 400px;
-    border: 2px solid black;
+    border-color: black;
 }
 
 .userCreatedMemes > h1{
@@ -57,8 +57,6 @@ button{
     background-color: black;
     color: white
 }
-
-
 
 .memeFormat {
     margin-top: 5px;
