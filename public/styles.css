@@ -1,18 +1,31 @@
 html, body {
-    background-color: #3D5A80;
-    color: white;
+    color: black;
     text-align: center;
+    width: 100%;
 }
 
-h1{
-    font-family: 'Brush Script MT', cursive;
+body{
+    background-image: url("https://image.freepik.com/free-vector/laughing-emoji-social-media-message-background-copy-space_95169-1323.jpg");
+    position: relative;
+    background-position: center;    
+    background-color: #fccf3e;
+
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Brush Script MT';
     font-size: 3.5em;
     margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 
-.imageBox{
-    border: 1px solid white;
+.imageBox {
+    margin-top: 10px;
+    /* border: 1px solid white; */
     box-sizing: border-box;
     width: 400px;
     height: 400px;
@@ -21,24 +34,41 @@ h1{
     align-items:center;
     justify-content:center;
 
-    padding:20px;
 }
 
-#genParent{
+#genParent {
     display: flex;
     flex-direction: column;
     align-items:center
 }
 
+hr {
+    margin-top: 20px;
+    width: 400px;
+    border: 2px solid black;
+}
+
+.userCreatedMemes > h1{
+    color: black;
+    text-decoration: underline;
+}
+
+button{
+    background-color: black;
+    color: white
+}
+
+
+
 .memeFormat {
     margin-top: 5px;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
-img{
+img {
     height: 400px;
     width: 400px;
 }
