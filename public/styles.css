@@ -39,7 +39,7 @@ h1 {
 
 }
 
-#genParent {
+.genParent {
     display: flex;
     flex-direction: column;
     align-items:center

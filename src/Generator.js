@@ -4,7 +4,7 @@ import Form from "./Form"
 function Generator(props) {
         return (
             <div>
-                <div id="genParent">
+                <div className="genParent">
 
                     <h1>React Meme Generator!</h1>
 

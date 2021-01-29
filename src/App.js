@@ -1,5 +1,6 @@
 import React from 'react'
 import Generator from './Generator'
+import CreatedMemes from './CreatedMemes'
 
 class App extends React.Component {
     constructor(props){
@@ -73,6 +74,11 @@ class App extends React.Component {
 
                     topText = {this.state.topText}
                     bottomText = {this.state.bottomText}
+                />
+
+                <CreatedMemes 
+                    imgUrl = {currentMeme.url} 
+    
                 />
             </div>
         )
