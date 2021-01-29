@@ -5,11 +5,12 @@ function CreatedMemes(props){
         <div>
             <div className="genParent">
                 <span className="imageBox">
-                    <p className="topText"></p>   
-                    <img src={props.imgUrl} alt="meme"/>
-                    <p className="bottomText"></p>
+                    <p className="topText">{props.topText}</p>   
+                    <img src={props.url} alt="meme"/>
+                    <p className="bottomText">{props.bottomText}</p>
                 </span>
             </div>
+            <hr />
         </div>
     )
 }

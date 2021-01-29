@@ -9,7 +9,8 @@ class App extends React.Component {
             loading: false,
             memes: {},
             topText: "",
-            bottomText: ""
+            bottomText: "",
+            userMemes: []
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -47,22 +48,38 @@ class App extends React.Component {
     }
 
     handleChange(event){
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        const {name, value} = event.target
+        this.setState(prevState => ({
+            ...prevState,
+            [name]: value
+        }))
     }
 
     handleSubmit = (e) => {
-        this.setState({
-            topText: "",
-            bottomText: ""
+        this.addMemes(this.state.memes)
+
+        this.setState(prevState  => {
+            return {
+                ...prevState,
+                topText: "",
+                bottomText: ""
+            }
         })
         e.preventDefault()
+        console.log(this.state.topText)
+    }
+
+    addMemes = (createdMeme) => {
+        this.setState(prevState => {
+            return {
+                userMemes: [...prevState.userMemes, createdMeme]
+            }
+        })
+        console.log(this.state.userMemes)
     }
 
     render(){
         const currentMeme = this.state.memes
-        const stateObject = this.state
         return (
             <div>
                 <Generator 
@@ -77,11 +94,15 @@ class App extends React.Component {
                     topText = {this.state.topText}
                     bottomText = {this.state.bottomText}
                 />
+                
+               {this.state.userMemes.map((memes) => 
+               <CreatedMemes 
+                    {...memes}
+                    lastText={this.state.lastText}
+                    key={memes.id}
+               />
+                )} 
 
-                <CreatedMemes 
-                    imgUrl = {currentMeme.url} 
-    
-                />
             </div>
         )
     }
