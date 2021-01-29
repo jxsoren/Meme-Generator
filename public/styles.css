@@ -24,16 +24,12 @@ h1 {
 
 
 .imageBox {
+    position: relative;
     margin-top: 10px;
     /* border: 1px solid white; */
     box-sizing: border-box;
     width: 400px;
     height: 400px;
-
-    display: flex;
-    align-items:center;
-    justify-content:center;
-
 }
 
 #genParent {
@@ -69,4 +65,21 @@ button {
 img {
     height: 400px;
     width: 400px;
+}
+
+
+.top {
+    margin-top: 0;
+    position: absolute;
+    top: 0px;
+    color: white;
+    font-size: 40px;
+}
+
+.bottom {
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    font-size: 40px;  
 }

@@ -6,9 +6,12 @@ class App extends React.Component {
         super(props)
         this.state = {
             loading: false,
-            memes: {},
+            topText: "",
+            bottomText: "",
+            memes: {}
         }
         this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
     
     componentDidMount(){
@@ -26,7 +29,8 @@ class App extends React.Component {
             })
     }
 
-    handleClick(){
+    handleClick(event){
+        event.preventDefault()
         fetch("https://api.imgflip.com/get_memes")
             .then(res => res.json())
             .then(getData => {
@@ -39,12 +43,20 @@ class App extends React.Component {
             })
     }
 
+    handleChange(event) {
+        const {name, value} = event.target
+        this.setState({
+            [name]: value
+        })
+    }
+
     render(){
         const currentMeme = this.state.memes
+        const stateObject = this.state
         return (
             <div>
                 
-                <Generator name={currentMeme.name} key={currentMeme.id} imgUrl={currentMeme.url} handleClick={this.handleClick}/>
+                <Generator name={currentMeme.name} key={currentMeme.id} imgUrl={currentMeme.url} handleClick={this.handleClick} state={stateObject} onChange={this.handleChange}/>
 
                 {/* {this.state.memes.map((target) => 
                 <Generator {...target} key={target.id}/>)} */}

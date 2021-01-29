@@ -4,8 +4,20 @@ function Form(props) {
     return (
         <div>
             <form>
-                <input placeholder="Top Text"/>
-                <input placeholder="Bottom Text"/>
+                <input
+                type="text" 
+                placeholder="Top Text"
+                name="topText"
+                value={props.state.topText}
+                onChange={props.onChange}
+                />
+                <input 
+                type="text"
+                placeholder="Bottom Text"
+                name="bottomText"
+                value={props.state.bottomText}
+                onChange={props.onChange}
+                />
                 <button>Submit</button>
             </form>
         </div>
