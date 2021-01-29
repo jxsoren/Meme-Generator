@@ -1,21 +1,30 @@
 import React from 'react'
 import Form from "./Form"
+
 function Generator(props) {
         return (
             <div>
-                <div id="genParent">
+                <div className="genParent">
+
                     <h1>React Meme Generator!</h1>
-                    <Form state={props.state} onChange={props.onChange}/>
+
+                    <Form 
+                        topText = {props.topText}
+                        bottomText = {props.bottomText}
+                        handleChange = {props.handleChange} 
+                        handleSubmit = {props.handleSubmit}
+                    />
+
                     <div className="memeFormat">
-                        <form>
-                            <div className="imageBox">
-                                <img src={props.imgUrl} alt="meme"/>
-                                <h2 className="top">{props.state.topText}</h2>
-                                <h2 className="bottom">{props.state.bottomText}</h2>
-                            </div>
-                            <h3>Meme Name: {props.name}</h3>
-                            <button onClick={props.handleClick}>New Meme</button>
-                        </form>
+                        <span className="imageBox">
+                            <p className="topText">{props.topText}</p>
+                
+                            <img src={props.imgUrl} alt="meme"/>
+
+                            <p className="bottomText">{props.bottomText}</p>
+                        </span>
+                        <h3>Meme Name: {props.name}</h3>
+                        <button onClick={props.handleClick}>New Meme</button>
                     </div>
                 </div>
 

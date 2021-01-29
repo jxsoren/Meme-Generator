@@ -1,17 +1,20 @@
 import React from 'react'
 import Generator from './Generator'
+import CreatedMemes from './CreatedMemes'
 
 class App extends React.Component {
     constructor(props){
         super(props)
         this.state = {
             loading: false,
+            memes: {},
             topText: "",
             bottomText: "",
-            memes: {}
+            userMemes: []
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     
     componentDidMount(){
@@ -27,6 +30,7 @@ class App extends React.Component {
                 })
                 console.log(getData.data.memes)
             })
+            console.log(this.state.topText)
     }
 
     handleClick(event){
@@ -43,31 +47,65 @@ class App extends React.Component {
             })
     }
 
-    handleChange(event) {
+    handleChange(event){
         const {name, value} = event.target
-        this.setState({
+        this.setState(prevState => ({
+            ...prevState,
             [name]: value
+        }))
+    }
+
+    handleSubmit = (e) => {
+        this.addMemes(this.state.memes)
+
+        this.setState(prevState  => {
+            return {
+                ...prevState,
+                topText: "",
+                bottomText: ""
+            }
         })
+        e.preventDefault()
+        console.log(this.state.topText)
+    }
+
+    addMemes = (createdMeme) => {
+        this.setState(prevState => {
+            return {
+                userMemes: [...prevState.userMemes, createdMeme]
+            }
+        })
+        console.log(this.state.userMemes)
     }
 
     render(){
         const currentMeme = this.state.memes
-        const stateObject = this.state
         return (
             <div>
-                
-                <Generator name={currentMeme.name} key={currentMeme.id} imgUrl={currentMeme.url} handleClick={this.handleClick} state={stateObject} onChange={this.handleChange}/>
+                <Generator 
+                    name = {currentMeme.name} 
+                    key = {currentMeme.id} 
+                    imgUrl = {currentMeme.url} 
 
-                {/* {this.state.memes.map((target) => 
-                <Generator {...target} key={target.id}/>)} */}
+                    handleChange = {this.handleChange}
+                    handleClick = {this.handleClick}
+                    handleSubmit = {this.handleSubmit}
+
+                    topText = {this.state.topText}
+                    bottomText = {this.state.bottomText}
+                />
+                
+               {this.state.userMemes.map((memes) => 
+               <CreatedMemes 
+                    {...memes}
+                    lastText={this.state.lastText}
+                    key={memes.id}
+               />
+                )} 
+
             </div>
         )
     }
 }
 
 export default App 
-
-  // {this.state.memes.map((target) => 
-    //     <Generator {...target} 
-    //     key={target.id}/>
-    //     )}

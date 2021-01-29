@@ -22,7 +22,6 @@ h1 {
     text-shadow: 3px 3px white, 5px 5px red;
 }
 
-
 .imageBox {
     position: relative;
     margin-top: 10px;
@@ -30,9 +29,17 @@ h1 {
     box-sizing: border-box;
     width: 400px;
     height: 400px;
+
+    position: relative;
+    text-align: center;
+
+    display: flex;
+    align-items:center;
+    justify-content:center;
+
 }
 
-#genParent {
+.genParent {
     display: flex;
     flex-direction: column;
     align-items:center
@@ -67,19 +74,28 @@ img {
     width: 400px;
 }
 
+.topText{
+    color: white;
+    text-shadow: 3px 3px 3px black;
+    font-weight: 600;
+    font-family: "Helvetica Neue";
+    font-size: 3em;
 
-.top {
-    margin-top: 0;
+    margin-top: 0px;
+
     position: absolute;
     top: 0px;
-    color: white;
-    font-size: 40px;
 }
 
-.bottom {
-    margin-bottom: 0;
-    position: absolute;
-    bottom: 10px;
+.bottomText{
     color: white;
-    font-size: 40px;  
+    text-shadow: 3px 3px 3px black;
+    font-family: "Helvetica Neue";
+    font-weight: 600;
+    font-size: 3em;
+
+    margin-bottom: 0px;
+
+    position: absolute;
+    bottom: 2px;
 }
