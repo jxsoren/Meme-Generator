@@ -7,8 +7,12 @@ class App extends React.Component {
         this.state = {
             loading: false,
             memes: {},
+            topText: "",
+            bottomText: ""
         }
         this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     
     componentDidMount(){
@@ -24,6 +28,7 @@ class App extends React.Component {
                 })
                 console.log(getData.data.memes)
             })
+            console.log(this.state.topText)
     }
 
     handleClick(){
@@ -39,23 +44,39 @@ class App extends React.Component {
             })
     }
 
+    handleChange(event){
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        this.setState({
+            topText: "",
+            bottomText: ""
+        })
+        e.preventDefault()
+    }
+
     render(){
         const currentMeme = this.state.memes
         return (
             <div>
-                
-                <Generator name={currentMeme.name} key={currentMeme.id} imgUrl={currentMeme.url} handleClick={this.handleClick}/>
+                <Generator 
+                    name = {currentMeme.name} 
+                    key = {currentMeme.id} 
+                    imgUrl = {currentMeme.url} 
 
-                {/* {this.state.memes.map((target) => 
-                <Generator {...target} key={target.id}/>)} */}
+                    handleChange = {this.handleChange}
+                    handleClick = {this.handleClick}
+                    handleSubmit = {this.handleSubmit}
+
+                    topText = {this.state.topText}
+                    bottomText = {this.state.bottomText}
+                />
             </div>
         )
     }
 }
 
 export default App 
-
-  // {this.state.memes.map((target) => 
-    //     <Generator {...target} 
-    //     key={target.id}/>
-    //     )}
